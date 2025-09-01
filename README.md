@@ -5,6 +5,14 @@ The valid begvns and ends can have letters in lower and upper case. Begin can ha
 
 The numbers of opening and closing brackets are from 0 in strict order. Before and after begin or and must be carriage return character or space character. For example:
 
-int foo(int a) begin
+int foo(int a) begin0
+
+for(int i = 0; i < 10; ++i) begin1
+
+++a;
+
+end1
+
 return a;
-end
+
+end0
