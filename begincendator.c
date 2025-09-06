@@ -8,6 +8,7 @@ FILE* ofp = NULL;
 
 int main(int argc, char* argv[])
 {
+	// may be output file is existing or locked
 	bool can_write_file = false;
 	if(1 == argc)
 	{
@@ -30,7 +31,7 @@ int main(int argc, char* argv[])
 	{
 		if((ofp = fopen(argv[2], "r")) == NULL)
 		{
-			printf("File is not readable\nMay be it is not exist.\n");
+			printf("Output file is not readable.\nMay be it is not exist or locked.\n");
 		can_write_file = true;
 		}
 		else
@@ -49,7 +50,7 @@ int main(int argc, char* argv[])
 		}
 		if(can_write_file)
 		{
-			if((ofp = fopen(argv[2], "w")) == NULL)
+			if((ofp = fopen(argv[2], "r+")) == NULL)
 			{
 				fprintf(stderr, "Error! Can not open output file!\n");
 				return EXIT_FAILURE;
